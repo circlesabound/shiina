@@ -1,4 +1,10 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-
-HI
+<div class='wrapper center-div'>
+<h1>Shiina</h1>
+   <%= form_tag("/search", method: "post") do %>
+   <%= label_tag(:q, "Keyword") %>
+   <br />
+   <%= text_field_tag(:q) %>
+   <br />
+   <%= submit_tag("Search") %>
+   <% end %>
+</div>
