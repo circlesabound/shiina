@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def ben
     render text: 'Ben was here lolol' 
   end
+
+  def ben2
+    render text: 'It seems like you have found my secret page'
+  end
 end
