@@ -21,7 +21,7 @@ body {
 
 .center-div {
   text-align: center;
-  border:1px solid black;
+  //border:1px solid black;
 }
 
 /* textfield */
@@ -34,5 +34,12 @@ body {
 
 .search-button {
    display: inline;
+   background-color: #88BBEE;
+   border: none;
+}
+
+.search-button:hover {
+   display: inline;
+   background-color: #77AADD;
    border: none;
 }
