@@ -42,10 +42,10 @@ body {
 }
 
 .search-button {
-   display: inline;
-   background-color: #EEEEEE;
+
    position: relative;
    top: 10px;
+   background-color: #EEEEEE;
    height: 40px;
    right: 4px;
    border-radius: 0 5px 5px 0;
@@ -54,11 +54,5 @@ body {
    background-repeat: no-repeat;
    background-position: center;
    width: 40px;
-   border: none;
-}
-
-.search-button:hover {
-   display: inline;
-   
    border: none;
 }
