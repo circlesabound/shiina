@@ -1,10 +1,9 @@
-<div class='container-fluid'>
+<div class='center-div col-md-6 col-md-offset-3'>
 <h1>Shiina</h1>
    <%= form_tag("/search", method: "post") do %>
-   <%= label_tag(:q, "Keyword") %>
-   <br />
-   <%= text_field_tag(:q) %>
-   <br />
-   <%= submit_tag("Search") %>
+   <!-- <%= label_tag(:q, "Keyword") %> -->
+   <!-- <br /> -->
+   <%= text_field_tag(:q, nil, placeholder: 'Search') %>
+   <%= submit_tag("Search", class: 'search-button') %>
    <% end %>
 </div>

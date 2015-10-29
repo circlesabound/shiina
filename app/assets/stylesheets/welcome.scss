@@ -8,17 +8,31 @@ body {
    background-image: image-url("shiina.png");
    background-size: cover;
    color: white;
-   font-family: helvetica;
-   
+   padding-top: 17em;
    h1 {
       text-align: center;
+      line-height: 1;
    }
 }
 
-.wrapper {
-   text-align: center;
+.container {
+   border:1px solid black;
 }
 
 .center-div {
-   
+  text-align: center;
+  border:1px solid black;
+}
+
+/* textfield */
+#q {
+   text-align: center;
+   width: 90%;
+   background-color: #99CCFF;
+   border: none;
+}
+
+.search-button {
+   display: inline;
+   border: none;
 }
