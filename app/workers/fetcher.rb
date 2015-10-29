@@ -3,7 +3,7 @@ class Fetcher
   include Sidekiq::Worker
   require 'net/http'
   require 'json'
-  def perform ()
+  def perform (params)
     # load stopwords array
     stopwords = Array.new()
     f = File.new("app/assets/other/stopwords")
@@ -12,7 +12,13 @@ class Fetcher
     end
     f.close()
 
-    url = URI.parse("https://www.freelancer.com/api/projects/0.1/projects/active/?compact&job_details=true&languages[]=en")
+    urlString = "https://www.freelancer.com/api/projects/0.1/projects/active/?compact&job_details=true"
+
+    params.each do |key, value|
+      urlString << "@" << key.to_s() << "=" << value.to_s()
+    end
+
+    url = URI.parse("https://www.freelancer.com/api/projects/0.1/projects/active/?compact&job_details=true")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     req = Net::HTTP::Get.new(url.request_uri)
