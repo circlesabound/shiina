@@ -17,7 +17,19 @@ function submitQuery() {
       'top' : '-180px'
     });
     var results = document.getElementById("search-results");
-    results.innerHTML += 'Showing results for ' + query.value
+    results.innerHTML = '<small>Showing results for ' + query.value + '</small><br />' + results.innerHTML;
+    results.style.display = 'block';
+  }
+}
+
+function showDescription(elem) {
+  var s = getElementById(elem);
+  s.style.display = "block";
+  alert("HO");
+  if (s.style.display != "none") {
+    s.style.display = "none";
+  } else {
+    s.style.display = "block";
   }
 }
 
@@ -26,10 +38,15 @@ function submitQuery() {
 <div id='everything' class='center-div'>
 <h1>Shiina</h1>
 <%= render 'search_form' %>
-  <div id='search-results'>
+  <div id='search-results' class='col-md-8 col-md-offset-2' style='display:none;'>
     <% arr = ['HTML', 'CSS', 'JavaScript'] %>
     <% arr.each do |x| %>
-    <%= render 'result' %>
+    <div class='individual-result' onclick='showDescription("<%= x %>");'>
+    <span class='result-title'><%= x %></span>
+    <br />
+    <span id='<%= x %>' class='result-description' style='display:none;'>This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. </span>
+    </div>
+    <br />
     <% end %>
   </div>
 </div>
