@@ -3,7 +3,19 @@
    <%= form_tag("/search", method: "post") do %>
    <!-- <%= label_tag(:q, "Keyword") %> -->
    <!-- <br /> -->
-   <%= text_field_tag(:q, nil, placeholder: '') %>
-   <%= submit_tag("Search", class: 'search-button') %>
+   <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();') %>
+   <%= submit_tag('', class: 'search-button', id: 'search_button') %>
    <% end %>
 </div>
+
+<script type="text/javascript">
+function onSelect () {
+   var submit_button = document.getElementById("search_button");
+   submit_button.style.backgroundColor = "#99CCFF";
+}
+
+function onBlur() {
+   var submit_button = document.getElementById("search_button");
+   submit_button.style.backgroundColor = "#EEEEEE";
+}
+</script>
