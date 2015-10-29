@@ -29,8 +29,10 @@ class Fetcher
               skill_id: currentSkill.id)
             if currentWeighting.raw_weighting.nil?
               currentWeighting.raw_weighting = 1
+              currentWeighting.save
             else
               currentWeighting.raw_weighting += 1
+              currentWeighting.save
             end
           end
         end
