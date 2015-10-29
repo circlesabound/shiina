@@ -4,6 +4,5 @@ class WelcomeController < ApplicationController
   end
 
   def show_results
-
   end
 end
