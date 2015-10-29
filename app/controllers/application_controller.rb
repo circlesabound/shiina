@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def ben
-    render text: 'Ben was here lolol' 
+    render text: 'Ben was here lolol'
   end
 
   def ben2
