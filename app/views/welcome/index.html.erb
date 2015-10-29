@@ -16,38 +16,51 @@ function submitQuery() {
     $("#everything").animate({
       'top' : '-180px'
     });
-    $("#search-results").fadeIn(600);
+    $("#search-results").fadeIn(300);
     var results = document.getElementById("search-results");
-    results.innerHTML = '<small>Showing results for <b>' + query.value + '</b></small><br />' + results.innerHTML;
     results.style.display = 'block';
   }
 }
 
-function showDescription(elem) {
-  var s = getElementById(elem);
-  s.style.display = "block";
-  alert("HO");
-  if (s.style.display != "none") {
-    s.style.display = "none";
+function showDescription(e) {
+  var form = document.getElementById(e);
+  if (form.style.display != "initial") {
+    form.style.display = "initial";
   } else {
-    s.style.display = "block";
+    form.style.display = "none";
   }
 }
 
 </script>
 
 <div id='everything' class='center-div'>
-<h1>Shiina</h1>
-<%= render 'search_form' %>
-  <div id='search-results' class='col-md-8 col-md-offset-2' style='display:none;'>
-    <% arr = ['HTML', 'CSS', 'JavaScript'] %>
-    <% arr.each do |x| %>
-    <div class='individual-result' onclick='showDescription("<%= x %>");'>
-    <span class='result-title'><%= x %></span>
-    <br />
-    <span id='<%= x %>' class='result-description' style='display:none;'>This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. </span>
-    </div>
-    <br />
-    <% end %>
+
+  <h1>Shiina</h1>
+
+  <%= render 'search_form' %>
+  <br />
+
+    <div id='search-results' class='col-md-6 col-md-offset-3' style='display:none;'>
+  
+      <% arr = ['HTML', 'CSS', 'JavaScript'] %>
+      <% arr.each do |x| %>
+      
+      <div class='individual-result' onclick='showDescription("<%= x %>");'>
+      
+        <span class='result-title'><%= x %></span>
+        <br />
+        
+        <div id='<%= x %>' class='result-description' style='display:none;'>
+
+          This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>.
+        
+        </div>
+      
+      </div>
+  
+      <br />
+      <% end %>
+
   </div>
+
 </div>
