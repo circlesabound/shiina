@@ -1,9 +1,5 @@
 <p>Nice search man</p>
-<p><%= $test2 %></p>
-<p><%= @keyword %></p>
-<p><%= $test %></p>
 <div id="results"></div>
-<script type="text/javascript">
-$.ajax(url: "/test").done (html) ->
-  $("#results").append html
-</script>
+<p><%= @keywords %></p>
+<p><%= @accepted_keywords %></p>
+<p><%= @results %></p>
