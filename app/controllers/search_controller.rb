@@ -12,5 +12,8 @@ class SearchController < ApplicationController
     $test = params[:q];
     $key = $test.split.delete_if{|x| @stopwords.include?(x.downcase) || @special.include?(x) }.join(' ')
     @keywords = $key.split
+
+    @keyword = Weighting.all
+    $test = @keyword.inspect
   end
 end
