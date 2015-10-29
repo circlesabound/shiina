@@ -5,48 +5,48 @@
 @import "bootstrap";
 
 body {
-   background-image: image-url("shiina.png");
+   background-image: url("http://www.wallhd4.com/wp-content/uploads/2015/04/sydney-night-lights-wallpapers-11.jpeg");
    background-size: cover;
    color: white;
-   padding-top: 17em;
+   padding-top: 15em;
    h1 {
       text-align: center;
       line-height: 1;
+      font-size: 10em;
+      opacity: 0.9;
    }
 }
 
 .container {
-   border:1px solid black;
 }
 
 .center-div {
   text-align: center;
-  //border:1px solid black;
-}
-
-.search-div {
-   text-align: center;
-
+  margin: auto;
+  width: auto;
 }
 
 /* textfield */
+
+#search-form {
+   text-align: center;
+   height: 40px;
+   
+}
+
 #q {
-   width: 90%;
-   padding-left: 74px;
+   width: 500px;
+   padding-left: 10px;
    background-color: white;
    height: 40px;
-   color:gray;
-   border: none;
+   color:black;
    font-size: 1.4em;
    border-radius: 5px 0 0 5px;
 }
 
 .search-button {
-   position: relative;
-   top: 10px;
    background-color: #EEEEEE;
    height: 40px;
-   right: 4px;
    border-radius: 0 5px 5px 0;
    background-image: image-url("search-icon-hi.png");
    background-size: 60%;
@@ -57,10 +57,15 @@ body {
 }
 
 #i-want-to {
-   display: inline-block;
-   padding-top: 22px;
-   padding-left: 10px;
-   float: left;
-   position: absolute;
    color: #BBBBBB;
+   border: 1px solid black;
+   
+   float: left;
+   position: relative;
+   left: 40px;
+   z-index: -1;
+   
+
+   height: 100%;
+   overflow: auto;
 }
