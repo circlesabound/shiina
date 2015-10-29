@@ -19,19 +19,20 @@ ActiveRecord::Schema.define(version: 20151029001952) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "keywords_skills", id: false, force: :cascade do |t|
-    t.integer "keyword_id",    null: false
-    t.integer "skill_id",      null: false
-    t.integer "raw_weighting"
-  end
-
-  add_index "keywords_skills", ["keyword_id", "skill_id"], name: "index_keywords_skills_on_keyword_id_and_skill_id"
-
   create_table "skills", force: :cascade do |t|
-    t.text     "name"
+    t.text     "skill"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "weightings", force: :cascade do |t|
+    t.integer "keyword_id"
+    t.integer "skill_id"
+    t.integer "raw_weighting"
+  end
+
+  add_index "weightings", ["keyword_id"], name: "index_weightings_on_keyword_id"
+  add_index "weightings", ["skill_id"], name: "index_weightings_on_skill_id"
 
 end
