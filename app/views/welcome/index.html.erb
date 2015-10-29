@@ -16,8 +16,9 @@ function submitQuery() {
     $("#everything").animate({
       'top' : '-180px'
     });
+    $("#search-results").fadeIn(600);
     var results = document.getElementById("search-results");
-    results.innerHTML = '<small>Showing results for ' + query.value + '</small><br />' + results.innerHTML;
+    results.innerHTML = '<small>Showing results for <b>' + query.value + '</b></small><br />' + results.innerHTML;
     results.style.display = 'block';
   }
 }
