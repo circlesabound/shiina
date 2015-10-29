@@ -1,3 +1,4 @@
 function test() {
-	$("html,body").animate({ scrollTop: 0 }, "slow")
+	$("html,body").animate({ scrollTop: $(document).height() }, "slow")
+	
 }
