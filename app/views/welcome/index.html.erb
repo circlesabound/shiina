@@ -1,15 +1,12 @@
-<div id='everything' class='center-div'>
-<h1>SHIINA</h1>
-<%= render 'search_form' %>
-  <div id='search-results' class='hidden' >
-    hi
-  </div>
-</div>
 
 <script type="text/javascript">
 function onSelect () {
-   var submit_button = document.getElementById("search_button");
-   submit_button.style.backgroundColor = "#99CCFF";
+  var submit_button = document.getElementById("search_button");
+  submit_button.style.backgroundColor = "#99CCFF";
+  $('#search-results').html("PENIS");
+  $('#search-results').animate({
+     'marginLeft' : "+=30px"
+  });
 }
 
 function onBlur() {
@@ -17,3 +14,11 @@ function onBlur() {
    submit_button.style.backgroundColor = "#EEEEEE";
 }
 </script>
+
+<div id='everything' class='center-div'>
+<h1>Shiina</h1>
+<%= render 'search_form' %>
+  <div id='search-results'>
+    hi
+  </div>
+</div>
