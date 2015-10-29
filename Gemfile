@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# responders
+gem 'responders', '~> 2.0'
 # Use boostrap
 gem 'bootstrap-sass', '3.2.0.0'
 # Use Uglifier as compressor for JavaScript assets

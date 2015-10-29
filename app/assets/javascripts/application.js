@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+
+$(document.ready(function () {
+  $("#search-button").click(function () {
+    $("#everything").animate({
+      'marginLeft' : "+=30px"
+    });
+  });
+});
