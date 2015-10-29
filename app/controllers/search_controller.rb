@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    @special = ["(",")","@","#","^"]
+    @special = ["(",")","@","#","^","."]
     route = File.join(Rails.root, 'app', 'assets', 'other', 'stopwords');
     @stopwords = []
     File.open(route) do |file|
@@ -10,19 +10,21 @@ class SearchController < ApplicationController
     end
 
     $test = params[:q];
-    $key = $test.split.delete_if { |x|
+    $key = $test.split.map { |element| element.downcase }.delete_if { |x|
       @stopwords.include?(x.downcase) || @special.include?(x)
     }.join(' ')
     @keywords = $key.split
 
     @weightings = Hash.new(0)
     @keyword_ids = Array.new()
+    @accepted_keywords = Array.new()
     @keywords.each do |keyword|
       keyword_obj = Keyword.where(word: keyword).take
       # words without skills attached are ignored
       if keyword_obj.nil?
         next
       end
+      @accepted_keywords << keyword
       @keyword_ids << keyword_obj["id"]
       @keyword_ids.each do |keyword_id|
         Weighting.where(keyword_id: keyword_id).find_each do |weighting|
