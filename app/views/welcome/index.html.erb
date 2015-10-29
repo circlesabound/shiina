@@ -14,10 +14,10 @@ function submitQuery() {
   var query = document.getElementById("q");
   if (query.value) {
     $("#everything").animate({
-      'top' : '-200px'
+      'top' : '-180px'
     });
     var results = document.getElementById("search-results");
-    results.innerHTML = 'Showing results for ' + query.value
+    results.innerHTML += 'Showing results for ' + query.value
   }
 }
 
@@ -27,6 +27,9 @@ function submitQuery() {
 <h1>Shiina</h1>
 <%= render 'search_form' %>
   <div id='search-results'>
-    
+    <% arr = ['HTML', 'CSS', 'JavaScript'] %>
+    <% arr.each do |x| %>
+    <%= render 'result' %>
+    <% end %>
   </div>
 </div>
