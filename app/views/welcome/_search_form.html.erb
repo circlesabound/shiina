@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_tag("/search", method: "post", remote: true) do %>
 <!-- <%= label_tag(:q, "Keyword") %> -->
 <!-- <br /> -->
@@ -5,3 +6,13 @@
 <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();') %>
 <%= submit_tag('', class: 'search-button', id: 'search_button') %>
 <% end %>
+=======
+<div id='search-form' class='input-group center-div'>
+  <%= form_tag("/search", method: "post", remote: true, id: 'search-form') do %>
+  <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();', class: 'form-control', placeholder: 'I want to...') %>
+  <span class='input-group-btn'>
+  <%= submit_tag(' ', class: 'search-button', id: 'search_button') %>
+  </span>
+  <% end %>
+</div>
+>>>>>>> aab0c69644e690516828559de8bfdfece28257c9
