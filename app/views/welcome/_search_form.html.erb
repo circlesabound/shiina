@@ -1,8 +1,8 @@
 <div id='search-form' class='input-group center-div'>
   <%= form_tag("/search", method: "post", remote: true, id: 'search-form') do %>
-  <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();', class: 'form-control', placeholder: 'I want to...') %>
+  <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();', class: 'form-control', placeholder: 'I want to...', required: '1') %>
   <span class='input-group-btn'>
-  <%= submit_tag(' ', class: 'search-button', id: 'search_button') %>
+  <%= button_tag(' ', class: 'search-button', id: 'search_button', onclick: 'submitQuery();') %>
   </span>
   <% end %>
 </div>

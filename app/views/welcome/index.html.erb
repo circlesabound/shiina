@@ -3,22 +3,30 @@
 function onSelect () {
   var submit_button = document.getElementById("search_button");
   submit_button.style.backgroundColor = "#99CCFF";
-  $('#search-results').html("PENIS");
-  $('#search-results').animate({
-     'marginLeft' : "+=30px"
-  });
 }
 
 function onBlur() {
    var submit_button = document.getElementById("search_button");
    submit_button.style.backgroundColor = "#EEEEEE";
 }
+
+function submitQuery() {
+  var query = document.getElementById("q");
+  if (query.value) {
+    $("#everything").animate({
+      'top' : '-200px'
+    });
+    var results = document.getElementById("search-results");
+    results.innerHTML = 'Showing results for ' + query.value
+  }
+}
+
 </script>
 
 <div id='everything' class='center-div'>
 <h1>Shiina</h1>
 <%= render 'search_form' %>
   <div id='search-results'>
-    hi
+    
   </div>
 </div>

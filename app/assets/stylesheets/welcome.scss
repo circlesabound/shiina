@@ -6,6 +6,8 @@
 
 body {
    background-image: url("http://www.wallhd4.com/wp-content/uploads/2015/04/sydney-night-lights-wallpapers-11.jpeg");
+   //background-image: image-url("shiina.png");
+   //background-color: black;
    background-size: cover;
    color: white;
    padding-top: 15em;
@@ -15,6 +17,10 @@ body {
       font-size: 10em;
       opacity: 0.9;
    }
+}
+
+#everything {
+   position: relative;
 }
 
 .container {
