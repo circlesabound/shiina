@@ -49,8 +49,10 @@ body {
    height: 40px;
    right: 4px;
    border-radius: 0 5px 5px 0;
-   background-image: image-url("search_icon.png");
-   background-size: cover;
+   background-image: image-url("search-icon-hi.png");
+   background-size: 60%;
+   background-repeat: no-repeat;
+   background-position: center;
    width: 40px;
    border: none;
 }
