@@ -4,6 +4,14 @@ class Fetcher
   require 'net/http'
   require 'json'
   def perform ()
+    # load stopwords array
+    stopwords = Array.new()
+    f = File.new("app/assets/other/stopwords")
+    while line = f.gets
+      stopwords << line.chomp
+    end
+    f.close()
+
     url = URI.parse("https://www.freelancer.com/api/projects/0.1/projects/active/?compact&job_details=true&languages[]=en")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -16,22 +24,25 @@ class Fetcher
       keywords.each do |word|
         if word =~ /\D/
           word.downcase!
-          puts "Importing word #{word}"
-          currentWord = Keyword.find_or_create_by(word: word)
+          if stopwords.include?(word)
+            puts "Skipping stopword #{word}"
+          else
+            puts "Importing word #{word}"
+            currentWord = Keyword.find_or_create_by(word: word)
 
-          project["jobs"].each do |job|
-            puts "Importing skill #{job['name']} for word #{word}"
-            currentSkill = Skill.find_or_create_by(
-              skill: job["name"],
-              description: "placeholder")
-            currentWeighting = Weighting.find_or_create_by(
-              keyword_id: currentWord.id,
-              skill_id: currentSkill.id)
-            if currentWeighting.raw_weighting.nil?
-              currentWeighting.raw_weighting = 1
-              currentWeighting.save
-            else
-              currentWeighting.raw_weighting += 1
+            project["jobs"].each do |job|
+              puts "Importing skill #{job['name']} for word #{word}"
+              currentSkill = Skill.find_or_create_by(
+                skill: job["name"],
+                description: "placeholder")
+              currentWeighting = Weighting.find_or_create_by(
+                keyword_id: currentWord.id,
+                skill_id: currentSkill.id)
+              if currentWeighting.raw_weighting.nil?
+                currentWeighting.raw_weighting = 1
+              else
+                currentWeighting.raw_weighting += 1
+              end
               currentWeighting.save
             end
           end
