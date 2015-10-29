@@ -32,7 +32,7 @@ body {
 /* textfield */
 #q {
    width: 90%;
-   padding-left: 10px;
+   padding-left: 74px;
    background-color: white;
    height: 40px;
    color:gray;
@@ -42,7 +42,6 @@ body {
 }
 
 .search-button {
-
    position: relative;
    top: 10px;
    background-color: #EEEEEE;
@@ -55,4 +54,13 @@ body {
    background-position: center;
    width: 40px;
    border: none;
+}
+
+#i-want-to {
+   display: inline-block;
+   padding-top: 22px;
+   padding-left: 10px;
+   float: left;
+   position: absolute;
+   color: #BBBBBB;
 }

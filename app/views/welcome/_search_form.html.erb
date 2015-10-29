@@ -1,6 +1,7 @@
 <%= form_tag("/search", method: "post") do %>
 <!-- <%= label_tag(:q, "Keyword") %> -->
 <!-- <br /> -->
+<%= label_tag(:q,"I want to", id: 'i-want-to') %>
 <%= text_field_tag(:q, nil, placeholder: '', onfocus: 'onSelect();', onblur: 'onBlur();') %>
 <%= submit_tag('', class: 'search-button', id: 'search_button') %>
 <% end %>
