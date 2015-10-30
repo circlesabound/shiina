@@ -15,9 +15,10 @@ class SearchController < ApplicationController
     }.join(' ')
     @keywords = $key.split
 
-    @weightings = Hash.new(0)
+    @weightings = Hash.new(0.0)
     @keyword_ids = Array.new()
     @accepted_keywords = Array.new()
+    @counts = Array.new()
     @keywords.each do |keyword|
       keyword_obj = Keyword.where(word: keyword).take
       # words without skills attached are ignored
@@ -30,21 +31,26 @@ class SearchController < ApplicationController
         Weighting.where(keyword_id: keyword_id).find_each do |weighting|
           skill_name = Skill.where(id: weighting["skill_id"]).take["skill"]
           # apply exponential scale to raw weightings
-          scaled_weighting = 2 ** weighting["raw_weighting"].to_i
+          scaled_weighting = weighting["raw_weighting"]
           @weightings[skill_name] += scaled_weighting
           # if key already existed beforehand, we have double match
           # increase weighting by 1.3x
           if @weightings[skill_name] != scaled_weighting
             @weightings[skill_name] *= 1.3
-            @weightings[skill_name] = @weightings[skill_name].round
           end
+          # overall weigh the word lower if it has many related skills
+          @temp = Weighting.where(keyword_id: keyword_id).count
+          negative_weighting = 10.0/@temp ** 1/2
+          @temp2 = negative_weighting
+          @weightings[skill_name] *= negative_weighting
         end
+        @counts << Weighting.where(keyword_id: keyword_id).size
       end
     end
 
     # display the 7 most highly ranked skills
     @results = @weightings.sort_by { |key, value|
       value
-    }.reverse[0..6].map { |arr| arr[0] }
+    }.reverse[0..6]
   end
 end
