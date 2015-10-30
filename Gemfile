@@ -7,6 +7,9 @@ gem 'rails', '4.2.4'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# plotting
+gem 'chart-js-rails'
+gem 'chartjs-ror'
 # responders
 gem 'responders', '~> 2.0'
 # Use boostrap
