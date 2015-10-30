@@ -1,0 +1,24 @@
+<ul class='nav nav-tabs'>
+    
+    <% arr = ['HTML', 'CSS', 'JavaScript', 'Web Design', 'Graphic Design'] %>
+    <% arr.each do |x| %>
+    
+      <li><a data-toggle='tab' href='#description-<%= x %>' class='tab-link'><%= x %></a></li>
+    
+    <% end %>
+    
+    </ul>
+
+    <div class='tab-content'>
+      
+      <% arr.each do |x| %>
+    
+      <div id='description-<%= x %>' class='tab-pane fade'>
+
+        This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>. This is a description of <%= x %>.
+
+      </div>
+    
+    <% end %>
+    
+    </div>
