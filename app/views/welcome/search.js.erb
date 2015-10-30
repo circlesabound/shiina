@@ -1,2 +1,6 @@
-$('#please').html("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>hello");
+var text = $('#search-form').find('input[name=q]').val();
+var data = <%= raw @results %>;
+//$('#please').html("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>hello");
+$('#results').html(text);
+$('#present').html(data);
 console.log("work please");
