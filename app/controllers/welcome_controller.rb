@@ -49,7 +49,7 @@ class WelcomeController < ApplicationController
     # display the 7 most highly ranked skills
     @results = @weightings.sort_by { |key, value|
       value
-    }.reverse[0..6].map { |arr| arr[0] }
+    }.reverse[0..6]
 
     respond_to do |format|
         format.html

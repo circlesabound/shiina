@@ -5,8 +5,8 @@
 @import "bootstrap";
 
 body {
-   //background-image: url("http://www.wallhd4.com/wp-content/uploads/2015/04/sydney-night-lights-wallpapers-11.jpeg");
-   background-image: image-url("shiina.png");
+   background-image: url("http://www.wallhd4.com/wp-content/uploads/2015/04/sydney-night-lights-wallpapers-11.jpeg");
+   //background-image: image-url("shiina.png");
    //background-color: black;
    background-size: cover;
    color: white;
@@ -17,6 +17,10 @@ body {
       font-size: 10em;
       opacity: 0.9;
    }
+}
+
+.blah {
+   background-color: rgba(0,0,0,0.7)
 }
 
 .search-results {
@@ -43,7 +47,7 @@ body {
 }
 
 .result-description {
-   
+
 }
 
 #everything {
@@ -72,7 +76,7 @@ div.description {
 #search-form {
    text-align: center;
    height: 40px;
-   
+
 }
 
 #q {
@@ -100,12 +104,12 @@ div.description {
 #i-want-to {
    color: #BBBBBB;
    border: 1px solid black;
-   
+
    float: left;
    position: relative;
    left: 40px;
    z-index: -1;
-   
+
 
    height: 100%;
    overflow: auto;
