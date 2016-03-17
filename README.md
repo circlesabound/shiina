@@ -11,3 +11,4 @@ Contributors to this project are:
 - https://github.com/Synclicity
 - https://github.com/cbxsn
 - https://github.com/Nydrani
+- https://github.com/nelch
